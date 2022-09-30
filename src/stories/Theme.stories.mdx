@@ -1,0 +1,15 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { SyntaxHighlighter } from '@storybook/components';
+import theme from '../theme';
+
+<Meta title='Theme/config'
+  parameters={{
+    viewMode: 'docs',
+  }}
+/>
+
+## Theme config
+
+<SyntaxHighlighter>
+  {JSON.stringify(theme, null, 2)}
+</SyntaxHighlighter>
