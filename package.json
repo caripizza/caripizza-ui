@@ -5,7 +5,7 @@
   "repository": "git@github.com:caripizza/ui.git",
   "license": "MIT",
   "engines": {
-    "node": "14.18.3"
+    "node": ">=12.22.x <17.x"
   },
   "scripts": {
     "preclean": "rimraf node_modules",
