@@ -4,6 +4,7 @@
     "dist",
     "jest",
     "**/__tests__",
-    "jest-setup.ts"
+    "jest-setup.ts",
+    "**/stories.mdx"
   ]
 }
