@@ -5,6 +5,7 @@
     "jest",
     "**/__tests__",
     "jest-setup.ts",
-    "**/stories.mdx"
+    "**/stories.mdx",
+    "**/stories"
   ]
 }
