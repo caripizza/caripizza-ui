@@ -1,4 +1,4 @@
-import theme from '../';
+import { theme } from '../';
 
 describe('theme', () => {
   it('should have a default theme mode', () => {
