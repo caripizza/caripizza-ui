@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "storybook": "concurrently --kill-others --raw \"tsc --project ./tsconfig.dev.json --watch\" \"yarn start-storybook -p 6006\"",
-    "build-storybook": "build-storybook -c .storybook storybook-static"
+    "build-storybook": "build-storybook -c .storybook",
+    "chromatic": "yarn build-storybook && npx chromatic --project-token=92985fc3dcac --force-rebuild"
   },
   "outputDir": "./dist",
   "devDependencies": {
@@ -25,12 +26,16 @@
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-typescript": "^8.5.0",
     "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/core-common": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.1.1",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
+    "chromatic": "^6.10.1",
     "concurrently": "^7.4.0",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
@@ -47,7 +52,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   }
 }
