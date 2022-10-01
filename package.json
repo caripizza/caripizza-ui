@@ -2,10 +2,7 @@
   "name": "@caripizza/ui",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/caripizza/ui.git"
-  },
+  "repository": "git@github.com:caripizza/ui.git",
   "license": "MIT",
   "engines": {
     "node": ">=12.22.x <17.x"
