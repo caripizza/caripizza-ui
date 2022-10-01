@@ -2,7 +2,11 @@
  * @type {import('@storybook/core-common').StorybookConfig}
  */
 const config = {
-  stories: ['../src/stories/*.stories.mdx', '../src/stories/*.stories.@(js|jsx|ts|tsx|.mdx)'],
+  stories: [
+    '../src/stories/Button.stories.tsx',
+    '../src/stories/Theme.stories.mdx',
+    '../src/stories/*.stories.@(js|jsx|ts|tsx)'
+  ],
   addons: [
     '@storybook/addon-essentials',
   ],
@@ -12,6 +16,10 @@ const config = {
   },
   core: {
     disableTelemetry: true,
+    builder: 'webpack5',
+  },
+  typescript: {
+    reactDocgen: 'react-docgen',
   },
   webpackFinal: async (config) => {
     config.resolve = {
