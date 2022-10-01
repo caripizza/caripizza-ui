@@ -57,11 +57,5 @@
   "dependencies": {
     "react": "17.0.1",
     "react-dom": "17.0.1"
-  },
-  "bugs": {
-    "url": "https://github.com/caripizza/ui/issues"
-  },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/caripizza/ui#readme",
-  "_id": "@caripizza/ui@0.1.0"
+  }
 }
