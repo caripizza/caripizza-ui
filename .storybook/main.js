@@ -1,3 +1,5 @@
+const path = require('path');
+
 /**
  * @type {import('@storybook/core-common').StorybookConfig}
  */
@@ -25,7 +27,11 @@ const config = {
   webpackFinal: async (config) => {
     config.resolve = {
       ...(config.resolve || {}),
-      extensions: ['.ts', '.tsx', '.js']
+      extensions: ['.ts', '.tsx', '.js'],
+      alias: {
+        ...config.resolve?.alias,
+        '../dist/output.css': [path.resolve(__dirname, '../dist/'), path.resolve(__dirname, '../')],
+      }
     }
     return config;
   }
