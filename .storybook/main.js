@@ -9,6 +9,7 @@ const config = {
   ],
   addons: [
     '@storybook/addon-essentials',
+    'storybook-addon-themes'
   ],
   framework: '@storybook/react',
   features: {

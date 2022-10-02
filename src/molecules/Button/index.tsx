@@ -12,7 +12,8 @@ const Button: FC<ButtonProps> = ({ text, id }: ButtonProps) => {
   return (
     <button
       id={id}
-      style={{ color: 'cyan', width: '140px', backgroundColor: 'transparent' }}
+      // className='text-3xl underline shadow-xl text-opacity-5 text-tertiary-50'
+      className='btn-primary'
     >
       {text}
     </button>
