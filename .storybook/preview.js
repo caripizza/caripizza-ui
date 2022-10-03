@@ -1,3 +1,4 @@
+import { black, white } from 'tailwindcss/colors';
 import '../dist/output.css';
 
 export const parameters = {
@@ -11,13 +12,13 @@ export const parameters = {
         {
           name: 'Light mode',
           class: [],
-          color: '#ffffff',
+          color: white,
           default: true
         },
         {
           name: 'Dark mode',
           class: ['dark'],
-          color: '#000000'
+          color: black,
         }
     ]
   }

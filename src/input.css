@@ -8,6 +8,7 @@
     --color-fuschia: 214 33 152;
     --black-100: 0 0 0;
     --white-100: 255 255 255;
+    /* Light/dark mode colors */
     --text-primary: var(--black-100);
     --backg-primary: var(--white-100);
   }
@@ -15,17 +16,6 @@
     --text-primary: var(--white-100);
     --backg-primary: var(--black-100);
   }
-  /* TODO: handle system pref as default too (but retain utility class support?)
-  @media (prefers-color-scheme: light) {
-    :root {
-      --text-primary: var(--black-100);
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-primary: var(--white-100);
-    }
-  } */
 }
 
 @layer components {
