@@ -1,0 +1,1 @@
+export { hasDarkSystemTheme } from './hasDarkSystemTheme';
