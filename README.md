@@ -117,5 +117,6 @@ TBD
 ## Resources
 - [WIKI](https://github.com/caripizza/ui/wiki/Resources)
 - [LICENSE](./LICENSE.txt)
+- [CHANGELOG](./CHANGELOG.md)
 
 
