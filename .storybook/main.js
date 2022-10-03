@@ -11,7 +11,8 @@ const config = {
   ],
   addons: [
     '@storybook/addon-essentials',
-    'storybook-addon-themes'
+    'storybook-addon-themes',
+    '@storybook/addon-a11y'
   ],
   framework: '@storybook/react',
   features: {

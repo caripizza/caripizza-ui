@@ -27,6 +27,7 @@
     "@babel/core": "^7.19.3",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/core-common": "^6.5.12",
