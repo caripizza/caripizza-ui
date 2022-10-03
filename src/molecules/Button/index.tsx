@@ -1,20 +1,22 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 export interface ButtonProps {
   /** button text content */
   text: string;
   /** button id attribute */
   id: string;
+  /** take some action on button click */
+  onClick?: (
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+  ) => void;
 }
 
 /** Use Button to handle user interactions etc */
-const Button: FC<ButtonProps> = ({ text, id }: ButtonProps) => {
+const Button = ({ text, id, onClick }: ButtonProps): JSX.Element => {
   return (
-    <button
-      id={id}
-      // className='text-3xl underline shadow-xl text-opacity-5 text-tertiary-50'
-      className='btn-primary'
-    >
+    <button id={id} className='btn-primary' onClick={onClick}>
       {text}
     </button>
   );
