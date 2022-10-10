@@ -17,8 +17,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  :root .dark,
-  :root .dark-auto {
+  :root .dark {
     --color-turquoise: 0 128 152;
     --color-gold: 165 104 0;
     --text-primary: var(--white-100);

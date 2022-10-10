@@ -24,13 +24,13 @@ Inherit a dark system theme via CSS media query, classes, and CSS Vars:
     return (
       <div
         id="inherit-css"
-        className="bg-backg-primary text-primary dark-auto"
+        className="bg-backg-primary text-primary"
       >
         <style type="text/css">
           {`@media (prefers-color-scheme: dark) {
             :root #inherit-css {
               --text-primary: var(--white-100);
-              --backg-primary: var(--color-turquoise);
+              --backg-primary: var(--black-100);
             }`}
           }
         </style>
@@ -49,7 +49,7 @@ Inherit a dark system theme via CSS media query, classes, and CSS Vars:
   code={`
 <div
   id="inherit-css"
-  className="bg-backg-primary text-primary dark-auto"
+  className="bg-backg-primary text-primary"
 >
   <style type="text/css">
     @media (prefers-color-scheme: dark) {
