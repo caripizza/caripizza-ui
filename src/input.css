@@ -1,27 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
-    --color-aqua: 0 215 255;
-    --color-fuschia: 214 33 152;
+    --color-turquoise: 0 176 201;
+    --color-gold: 255 163 0;
     --black-100: 0 0 0;
     --white-100: 255 255 255;
-    /* Light/dark mode colors */
     --text-primary: var(--black-100);
     --backg-primary: var(--white-100);
+    --font-sans: 'Arimo', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  :root .dark {
+  :root .dark,
+  :root .dark-auto {
+    --color-turquoise: 0 128 152;
+    --color-gold: 165 104 0;
     --text-primary: var(--white-100);
     --backg-primary: var(--black-100);
   }
 }
 
+@layer utilities {
+  .focus-ui.btn-primary {
+    @apply focus:border-colors-gold-100 active:border-colors-gold-100;
+  }
+  .focus-ui.btn-secondary {
+    @apply focus:border-colors-turquoise-100 active:border-colors-turquoise-100;
+  }
+}
+
+
 @layer components {
+  .btn {
+    @apply text-primary font-semibold font-sans text-base
+      rounded-3xl shadow-lg focus-ui
+      py-2 px-4 flex items-center w-fit max-w-full h-12;
+  }
   .btn-primary {
-    @apply py-2 px-4 bg-aqua-50 text-primary font-semibold rounded-lg
-      shadow-md hover:bg-aqua-100 focus:outline-none focus:ring-opacity-75
-      transition-colors duration-300 h-fit;
+    @apply bg-turquoise-25 border-colors-turquoise-75
+      hover:bg-turquoise-50 active:bg-turquoise-75 focus:bg-turquoise-50
+      bg-gradient-to-b from-turquoise-25 to-transparent;
+  }
+  .btn-secondary {
+    @apply bg-gold-25 border-colors-gold-75
+      hover:bg-gold-50 active:bg-gold-75 focus:bg-gold-50
+      bg-gradient-to-b from-gold-25 to-transparent;
   }
 }
