@@ -1,0 +1,123 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title='Introduction' />
+
+## Introduction
+[@caripizza/ui](https://github.com/caripizza/ui) is a design system and component library made with React, Typescript, and Tailwind CSS.
+
+## Get started
+
+Install the UI library:
+
+<Source
+  language='bash'
+  dark
+  format={false}
+  code={
+`yarn add @caripizza/ui
+# and peerDependencies in package.json`
+}
+/>
+
+Add the stylesheet import to your entry-point file:
+
+<Source
+  language='jsx'
+  dark
+  format={false}
+  code={
+`import '@caripizza/ui/dist/output.css';
+// or via html/CDN:
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/@caripizza/ui@latest/dist/output.css"/>
+`}
+/>
+
+## Foundations
+
+### Typography
+`@caripizza/ui` uses the Google `Arimo` font family, made available in the stylesheet as the `--font-sans` CSS Var:
+
+<Source
+  language='css'
+  dark
+  format={false}
+  code={
+`body {
+  font-family: var(--font-sans);
+}`
+  }
+/>
+
+### Colors
+The stylesheet also includes CSS Vars for colors, which library components inherit:
+
+| property | description |
+|---|---|
+| `--color-turquoise` | primary button background colors |
+| `--color-gold` | focus state outline color, secondary button |
+| `--black-100` | light mode font color and dark mode background color |
+| `--white-100` | light mode background color and dark mode font color |
+| `--text-primary` | black if light mode, white if dark mode |
+| `--backg-primary` | white if light mode, black if dark mode |
+
+Theme colors are also offered as hex codes:
+
+```jsx
+import { colors } from '@caripizza/ui';
+// ...
+<div
+  style={{
+    background: `linear-gradient(45deg, ${colors.dark.turquoise[100]}, ${colors.dark.gold[50]})`
+  }}
+>
+```
+
+### Dark mode
+All components in the library include dark and light theme styles. To toggle dark mode, append the `dark` class name to an ancestor in the DOM and components will update their UI's accordingly:
+```html
+<body class="bg-backg-primary text-primary">
+  <h1>I render with dark background if system theme is dark</h1>
+  <script type="text/javascript">
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.className += " dark";
+    }
+  </script>
+</body>
+```
+
+The library also includes utils for detecting a user's system theme:
+```tsx
+import { hasDarkSystemTheme } from '@caripizza/ui';
+
+if (hasDarkSystemTheme()) {
+  toggleDarkMode(true); // etc...
+}
+```
+
+See the [Dark mode](/docs/theme-dark-mode--inherit) stories for detailed examples.
+
+----
+## Notes
+
+### NextJS
+Next configs need [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules) to transpile the module:
+```js
+/** @type {import('next').NextConfig} */
+const withTM = require('next-transpile-modules')(['@caripizza/ui']);
+const nextConfig = { reactStrictMode: true };
+module.exports = withTM(nextConfig);
+```
+
+----
+## Contributing
+TBD
+
+## Resources
+- [README on GitHub](https://github.com/caripizza/ui/blob/master/README.md)
+- [📦 npm](https://www.npmjs.com/package/@caripizza/ui)
+- [Chromatic > Library](https://www.chromatic.com/library?appId=63376424914401d9d4d73e3b)
+
+Storybook addons:
+- Storybook [light/dark theme addon](https://github.com/storybookjs/storybook/tree/main/lib/theming)
+- Storybook [a11y testing addon](https://storybook.js.org/addons/@storybook/addon-a11y)
+- Storybook [rtl addon](https://storybook.js.org/addons/storybook-rtl-addon)

@@ -1,0 +1,105 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs';
+import { hasDarkSystemTheme } from '../../utils';
+
+<Meta title='Theme/Dark mode'
+  parameters={{
+    viewMode: 'docs',
+  }}
+  decorators={[
+    (Story) => (
+      <>
+        <style>{`p:not(.sbdocs) { padding: 1rem; }`}</style>
+        <Story />
+      </>
+    ),
+  ]}
+/>
+
+# Dark mode
+
+Inherit a dark system theme via CSS media query, classes, and CSS Vars:
+
+<Story name="Inherit via CSS">
+  {() => {
+    return (
+      <div
+        id="inherit-css"
+        className="bg-backg-primary text-primary dark-auto"
+      >
+        <style type="text/css">
+          {`@media (prefers-color-scheme: dark) {
+            :root #inherit-css {
+              --text-primary: var(--white-100);
+              --backg-primary: var(--color-turquoise);
+            }`}
+          }
+        </style>
+        <p>
+          If system theme is dark, I auto-render with dark theme colors
+        </p>
+      </div>
+    )
+  }}
+</Story>
+
+<Source
+  language='html'
+  dark
+  format={false}
+  code={`
+<div
+  id="inherit-css"
+  className="bg-backg-primary text-primary dark-auto"
+>
+  <style type="text/css">
+    @media (prefers-color-scheme: dark) {
+      :root #inherit-css {
+        --text-primary: var(--white-100);
+        --backg-primary: var(--color-turquoise);
+      }
+    }
+  </style>
+  <p>
+    If system theme is dark, I auto-render with dark theme colors
+  </p>
+</div>
+  `}
+/>
+
+-----
+Inherit a dark system theme via JavaScript and classes:
+
+<Canvas>
+  <Story name="Inherit via JavaScript">
+    {() => (
+      <section
+        className={
+          `bg-backg-primary text-primary ${hasDarkSystemTheme() && 'dark'}`
+        }
+      >
+        <p>I also render in dark if system theme is dark</p>
+      </section>
+    )}
+  </Story>
+</Canvas>
+
+------
+Inherit a dark system theme via HTML and classes:
+
+<Source
+  language='html'
+  dark
+  format={false}
+  code={`
+<body class="bg-backg-primary text-primary">
+  <h1>I also render in dark if system theme is dark</h1>
+  <script type="text/javascript">
+    window.onload = () => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.className += " dark";
+      }
+    }
+  </script>
+</body>
+  `}
+/>
