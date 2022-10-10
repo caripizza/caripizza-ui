@@ -1,0 +1,48 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import { colors } from '../../atoms';
+
+<Meta title="Atoms/Colors" />
+
+# Colors
+The library's color palette is designed to meet [WCAG 2 Guidelines](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) for [minimum color contrast](https://dequeuniversity.com/rules/axe/4.4/color-contrast?application=axeAPI) to font color:
+
+| Theme | Color | Aa - Large Text | Aa - Normal Text | Contrast Ratio |
+|---|---|---|---|---|
+| Light | `turquoise-100` | Black Text - min 49% opacity | Black Text - min 65% opacity | [8.05:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=00B0C9) |
+| Light | `gold-100` | Black Text - min 46% opacity | Black Text - min 60% opacity | [10.49:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FFA300) |
+| Dark | `turquoise-100` | White Text - min 69% opacity | White Text - min 98% opacity | [4.62:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=008098) |
+| Dark | `gold-100` | White Text - min 69% opacity | White Text - min 99% opacity | [4.58:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=A56800) |
+____
+
+<style>
+{`.sbdocs-div {
+    padding: 1rem;
+  }
+  .sbdocs-div.dark {
+    background-color: rgb(var(--black-100) / 1);
+  }
+  .sbdocs-div.dark div,
+  .sbdocs-div.dark h2 {
+    color: rgb(var(--white-100) / 1);
+  }
+}`}
+</style>
+
+<div>
+  <h2>Default (light)</h2>
+  <ColorPalette>
+    {Object.entries(colors.light).map((el) => (
+      <ColorItem key={el[0]} title={el[0]} colors={{ ...el[1] }} />
+    ))}
+  </ColorPalette>
+</div>
+
+<div className="dark">
+  <h2>Dark</h2>
+  <ColorPalette>
+    {Object.entries(colors.dark).map((el) => (
+      <ColorItem key={el[0]} title={el[0]} colors={{ ...el[1] }} />
+    ))}
+  </ColorPalette>
+</div>
+

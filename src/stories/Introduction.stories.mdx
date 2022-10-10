@@ -1,33 +1,57 @@
-## @caripizza/ui
-A design system and component library made with React, Typescript, and Tailwind CSS.
+import { Meta, Source } from '@storybook/addon-docs';
 
-[Storybook-main](https://main--63376424914401d9d4d73e3b.chromatic.com/)\
-[📦 npm](https://www.npmjs.com/package/@caripizza/ui) / [yarn](https://yarnpkg.com/package/@caripizza/ui)
+<Meta title='Introduction' />
+
+## Introduction
+[@caripizza/ui](https://github.com/caripizza/ui) is a design system and component library made with React, Typescript, and Tailwind CSS.
 
 ## Get started
 
 Install the UI library:
-```bash
-yarn add @caripizza/ui
-# and peerDependencies in package.json
-```
+
+<Source
+  language='bash'
+  dark
+  format={false}
+  code={
+`yarn add @caripizza/ui
+# and peerDependencies in package.json`
+}
+/>
 
 Add the stylesheet import to your entry-point file:
-```tsx
-import '@caripizza/ui/dist/output.css';
 
+<Source
+  language='jsx'
+  dark
+  format={false}
+  code={
+`import '@caripizza/ui/dist/output.css';
 // or via html/CDN:
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/@caripizza/ui@latest/dist/output.css"/>
-```
----
-## Features
+`}
+/>
+
+## Foundations
 
 ### Typography
-`@caripizza/ui` uses the Google `Arimo` font family, made available in the stylesheet as the `--font-sans` CSS Var.
+`@caripizza/ui` uses the Google `Arimo` font family, made available in the stylesheet as the `--font-sans` CSS Var:
+
+<Source
+  language='css'
+  dark
+  format={false}
+  code={
+`body {
+  font-family: var(--font-sans);
+}`
+  }
+/>
 
 ### Colors
 The stylesheet also includes CSS Vars for colors, which library components inherit:
-| CSS Var | Description |
+
+| property | description |
 |---|---|
 | `--color-turquoise` | primary button background colors |
 | `--color-gold` | focus state outline color, secondary button |
@@ -36,9 +60,8 @@ The stylesheet also includes CSS Vars for colors, which library components inher
 | `--text-primary` | black if light mode, white if dark mode |
 | `--backg-primary` | white if light mode, black if dark mode |
 
-<br/>
-
 Theme colors are also offered as hex codes:
+
 ```jsx
 import { colors } from '@caripizza/ui';
 // ...
@@ -70,7 +93,8 @@ if (hasDarkSystemTheme()) {
   toggleDarkMode(true); // etc...
 }
 ```
-See the [Dark mode stories](./src/stories/theme) for detailed examples.
+
+See the [Dark mode](/docs/theme-dark-mode--inherit) stories for detailed examples.
 
 ----
 ## Notes
@@ -88,11 +112,12 @@ module.exports = withTM(nextConfig);
 ## Contributing
 TBD
 
-----
-
 ## Resources
-- [WIKI](https://github.com/caripizza/ui/wiki/Resources)
-- [LICENSE](./LICENSE.txt)
-- [CHANGELOG](./CHANGELOG.md)
+- [README on GitHub](https://github.com/caripizza/ui/blob/master/README.md)
+- [📦 npm](https://www.npmjs.com/package/@caripizza/ui)
+- [Chromatic > Library](https://www.chromatic.com/library?appId=63376424914401d9d4d73e3b)
 
-
+Storybook addons:
+- Storybook [light/dark theme addon](https://github.com/storybookjs/storybook/tree/main/lib/theming)
+- Storybook [a11y testing addon](https://storybook.js.org/addons/@storybook/addon-a11y)
+- Storybook [rtl addon](https://storybook.js.org/addons/storybook-rtl-addon)

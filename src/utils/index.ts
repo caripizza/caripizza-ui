@@ -1,1 +1,1 @@
-export { hasDarkSystemTheme } from './hasDarkSystemTheme';
+export { hasDarkSystemTheme, getSystemTheme } from './systemTheme';

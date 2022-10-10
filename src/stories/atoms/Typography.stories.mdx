@@ -1,0 +1,37 @@
+import { Meta, Typeset } from '@storybook/addon-docs';
+
+<Meta title="Atoms/Typography" />
+
+export const typography = {
+  type: {
+    primary: '"Arimo", system-ui, sans-serif',
+  },
+  weight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    m1: 20,
+    m2: 24,
+    m3: 28,
+    l1: 32,
+    l2: 40,
+    l3: 48,
+  },
+};
+
+# Typography
+
+**Font:** [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600)
+
+**Weights:** 400 (regular), 500 (medium), 600 (semibold)
+
+<Typeset fontSizes={Object.values(typography.size).map((el) => el)}
+  fontWeight={typography.weight.regular}
+  sampleText='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  fontFamily={typography.type.primary}
+/>
