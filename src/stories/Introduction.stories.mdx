@@ -85,7 +85,21 @@ import { colors } from '@caripizza/ui';
 />
 
 ### Dark mode
-All components in the library include dark and light theme styles. To toggle dark mode, append the `dark` class name to an ancestor in the DOM and components will update their UI's accordingly:
+To opt-into a dark theme:
+
+<Source
+  language='css'
+  dark
+  format
+  code={`
+body {
+  background-color: rgb(var(--backg-primary) / 1); /* also available as \`bg-backg-primary\` class */
+  color: rgb(var(--text-primary) / 1); /* also available as \`text-primary\` class */
+}
+`}
+/>
+
+All components in the library include dark and light theme styles. To toggle dark mode, append the `dark` class name to an ancestor in the DOM and components will update their UI's accordingly.
 
 <Source
   language='html'
