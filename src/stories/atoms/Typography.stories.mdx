@@ -1,37 +1,126 @@
-import { Meta, Typeset } from '@storybook/addon-docs';
+import { Meta, Typeset, Source, Canvas } from '@storybook/addon-docs';
 
 <Meta title="Atoms/Typography" />
 
 export const typography = {
   type: {
-    primary: '"Arimo", system-ui, sans-serif',
+    sans: `'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif`,
+    mono: `'Menlo', ui-monospace, SFMono-Regular, 'Courier New', monospace`,
   },
   weight: {
-    regular: '400',
-    medium: '500',
-    semibold: '600',
+    regular: 400,
+    medium: 500,
+    semibold: 600,
   },
   size: {
-    s1: 12,
-    s2: 14,
-    s3: 16,
-    m1: 20,
-    m2: 24,
-    m3: 28,
-    l1: 32,
-    l2: 40,
-    l3: 48,
+    xs: 12,
+    sm: 14,
+    base: 16,
+    lg: 18,
+    xl: 20,
+    "2xl": 24,
+    "3xl": 30,
+    "4xl": 36,
+    "5xl": 48,
+    "6xl": 60,
   },
 };
 
 # Typography
+Global CSS Vars provide the ability to opt-into the library font styles:
 
-**Font:** [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600)
+**Family:** [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600)
 
-**Weights:** 400 (regular), 500 (medium), 600 (semibold)
-
-<Typeset fontSizes={Object.values(typography.size).map((el) => el)}
-  fontWeight={typography.weight.regular}
-  sampleText='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  fontFamily={typography.type.primary}
+<Source
+  language='js'
+  format
+  code={`
+--font-sans // ${typography.type.sans}
+--font-mono // ${typography.type.mono}
+`}
 />
+
+**Sizes:**
+
+```js
+--font-size-xs // 0.75rem (12px)
+--font-size-sm // 0.875rem (14px)
+--font-size-base // 1rem (16px)
+--font-size-lg // 1.125rem (18px)
+--font-size-xl // 1.25rem (20px)
+--font-size-2xl // 1.5rem (24px)
+--font-size-3xl // 1.875rem (30px)
+--font-size-4xl // 2.25rem (36px)
+--font-size-5xl // 3rem (48px)
+--font-size-6xl // 3.75rem (60px)
+```
+
+**Weights:**
+
+<Source
+  language='js'
+  format
+  code={`
+--font-weight-regular // ${typography.weight.regular}
+--font-weight-medium // ${typography.weight.medium}
+--font-weight-semibold // ${typography.weight.semibold}
+`}
+/>
+
+<Canvas>
+  <div
+    style={{
+      display: 'grid',
+      gridColumnGap: '0.5em',
+      gridTemplateAreas:
+        `"rg md sb"
+        "rg md sb"
+        "rg md sb"`
+    }}
+  >
+    <style type="text/css">
+      {`.regular {
+        grid-area: rg;
+        width: 300px;
+        font-weight: var(--font-weight-regular);
+      }
+      .medium {
+        grid-area: md;
+        width: 300px;
+        font-weight: var(--font-weight-medium);
+      }
+      .semibold {
+        grid-area: sb;
+        width: 300px;
+        font-weight: var(--font-weight-semibold);
+      }`}
+    </style>
+    <div className="regular rg">
+      <span>400 (regular)</span>
+      <div>
+        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
+          sampleText='Lorem ipsum dolor sit amet'
+          fontFamily={typography.type.primary}
+        />
+      </div>
+    </div>
+    <div className="medium md">
+      <span>500 (medium)</span>
+      <div>
+        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
+          sampleText='Lorem ipsum dolor sit amet'
+          fontFamily={typography.type.primary}
+        />
+      </div>
+    </div>
+    <div className="semibold sb">
+      <span>600 (semibold)</span>
+      <div>
+        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
+          sampleText='Lorem ipsum dolor sit amet'
+          fontFamily={typography.type.primary}
+        />
+      </div>
+    </div>
+  </div>
+</Canvas>

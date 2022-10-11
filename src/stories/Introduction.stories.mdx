@@ -35,21 +35,28 @@ Add the stylesheet import to your entry-point file:
 ## Foundations
 
 ### Typography
-`@caripizza/ui` uses the Google `Arimo` font family, made available in the stylesheet as the `--font-sans` CSS Var:
+`@caripizza/ui` uses the Google [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600) font family, and exposes the following [CSS Vars for fonts](/story/atoms-typography--page):
 
-<Source
-  language='css'
-  dark
-  format={false}
-  code={
-`body {
-  font-family: var(--font-sans);
-}`
-  }
-/>
+| CSS Var | Value |
+|---|---|
+| `--font-sans` | `'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif` |
+| `--font-mono` | `'Menlo', ui-monospace, SFMono-Regular, 'Courier New', monospace` |
+| `--font-weight-regular` | 400 |
+| `--font-weight-medium` | 500 |
+| `--font-weight-semibold` | 600 |
+| `--font-size-xs` | `0.75rem (12px)` |
+| `--font-size-sm` | `0.875rem (14px)` |
+| `--font-size-base` | `1rem (16px)` |
+| `--font-size-lg` | `1.125rem (18px)` |
+| `--font-size-xl` | `1.25rem (20px)` |
+| `--font-size-2xl` | `1.5rem (24px)` |
+| `--font-size-3xl` | `1.875rem (30px)` |
+| `--font-size-4xl` | `2.25rem (36px)` |
+| `--font-size-5xl` | `3rem (48px)` |
+| `--font-size-6xl` | `3.75rem (60px)` |
 
 ### Colors
-The stylesheet also includes CSS Vars for colors, which library components inherit:
+The stylesheet also includes CSS Vars for colors:
 
 | property | description |
 |---|---|
@@ -62,37 +69,56 @@ The stylesheet also includes CSS Vars for colors, which library components inher
 
 Theme colors are also offered as hex codes:
 
-```jsx
+<Source
+  language='jsx'
+  dark
+  format
+  code={`
 import { colors } from '@caripizza/ui';
 // ...
 <div
   style={{
-    background: `linear-gradient(45deg, ${colors.dark.turquoise[100]}, ${colors.dark.gold[50]})`
+    background: \`linear-gradient(45deg, \${colors.dark.turquoise[100]}, \${colors.dark.gold[50]})\`
   }}
->
-```
+/>
+`}
+/>
 
 ### Dark mode
 All components in the library include dark and light theme styles. To toggle dark mode, append the `dark` class name to an ancestor in the DOM and components will update their UI's accordingly:
-```html
+
+<Source
+  language='html'
+  dark
+  format={false}
+  code={`
 <body class="bg-backg-primary text-primary">
   <h1>I render with dark background if system theme is dark</h1>
   <script type="text/javascript">
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.className += " dark";
+    window.onload = () => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.className += " dark";
+      }
     }
   </script>
 </body>
-```
+`}
+/>
 
 The library also includes utils for detecting a user's system theme:
-```tsx
-import { hasDarkSystemTheme } from '@caripizza/ui';
 
+<Source
+  language='jsx'
+  dark
+  format
+  code={`
+import { hasDarkSystemTheme } from '@caripizza/ui';
+// ...
 if (hasDarkSystemTheme()) {
-  toggleDarkMode(true); // etc...
+  toggleDarkMode(true); // etc
 }
-```
+`}
+/>
 
 See the [Dark mode](/docs/theme-dark-mode--inherit) stories for detailed examples.
 
