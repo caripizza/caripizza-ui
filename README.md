@@ -23,10 +23,28 @@ import '@caripizza/ui/dist/output.css';
 ## Features
 
 ### Typography
-`@caripizza/ui` uses the Google `Arimo` font family, made available in the stylesheet as the `--font-sans` CSS Var.
+`@caripizza/ui` uses the Google [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600) font family, and exposes the following [CSS Vars for fonts](./src/stories/atoms/Typography.stories.mdx):
+
+| CSS Var | Value |
+|---|---|
+| `--font-sans` | `'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif` |
+| `--font-mono` | `'Menlo', ui-monospace, SFMono-Regular, 'Courier New', monospace` |
+| `--font-weight-regular` | 400 |
+| `--font-weight-medium` | 500 |
+| `--font-weight-semibold` | 600 |
+| `--font-size-xs` | `0.75rem (12px)` |
+| `--font-size-sm` | `0.875rem (14px)` |
+| `--font-size-base` | `1rem (16px)` |
+| `--font-size-lg` | `1.125rem (18px)` |
+| `--font-size-xl` | `1.25rem (20px)` |
+| `--font-size-2xl` | `1.5rem (24px)` |
+| `--font-size-3xl` | `1.875rem (30px)` |
+| `--font-size-4xl` | `2.25rem (36px)` |
+| `--font-size-5xl` | `3rem (48px)` |
+| `--font-size-6xl` | `3.75rem (60px)` |
 
 ### Colors
-The stylesheet also includes CSS Vars for colors, which library components inherit:
+The stylesheet also includes CSS Vars for colors:
 | CSS Var | Description |
 |---|---|
 | `--color-turquoise` | primary button background colors |
@@ -55,8 +73,10 @@ All components in the library include dark and light theme styles. To toggle dar
 <body class="bg-backg-primary text-primary">
   <h1>I render with dark background if system theme is dark</h1>
   <script type="text/javascript">
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.className += " dark";
+    window.onload = () => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.className += " dark";
+      }
     }
   </script>
 </body>
@@ -75,6 +95,19 @@ See the [Dark mode stories](./src/stories/theme) for detailed examples.
 ----
 ## Notes
 
+### Support matrix
+| Browser | Version | OS
+|---|---|---|
+| Chrome | Latest version | Mac OS X 12.6 |
+| Safari | Latest version | Mac OS X 12.6 |
+| Firefox | Latest version | Mac OS X 12.6 |
+| Edge | Latest version | Mac OS X 12.6 |
+
+| Framework | Version |
+|---|---|
+| React | v17, v18 |
+| NextJS | v12 |
+
 ### NextJS
 Next configs need [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules) to transpile the module:
 ```js
@@ -86,7 +119,7 @@ module.exports = withTM(nextConfig);
 
 ----
 ## Contributing
-TBD
+- [CONTRIBUTING](./CONTRIBUTING.md)
 
 ----
 

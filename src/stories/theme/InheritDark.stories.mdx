@@ -45,7 +45,7 @@ Inherit a dark system theme via CSS media query, classes, and CSS Vars:
 <Source
   language='html'
   dark
-  format={false}
+  format
   code={`
 <div
   id="inherit-css"
@@ -55,7 +55,7 @@ Inherit a dark system theme via CSS media query, classes, and CSS Vars:
     @media (prefers-color-scheme: dark) {
       :root #inherit-css {
         --text-primary: var(--white-100);
-        --backg-primary: var(--color-turquoise);
+        --backg-primary: var(--black-100);
       }
     }
   </style>
@@ -69,37 +69,25 @@ Inherit a dark system theme via CSS media query, classes, and CSS Vars:
 -----
 Inherit a dark system theme via JavaScript and classes:
 
-<Canvas>
-  <Story name="Inherit via JavaScript">
-    {() => (
-      <section
-        className={
-          `bg-backg-primary text-primary ${hasDarkSystemTheme() && 'dark'}`
-        }
-      >
-        <p>I also render in dark if system theme is dark</p>
-      </section>
-    )}
-  </Story>
-</Canvas>
-
-------
-Inherit a dark system theme via HTML and classes:
+<Story name="Inherit via JavaScript">
+  {() => (
+    <section
+      className={
+        `bg-backg-primary text-primary ${hasDarkSystemTheme() && 'dark'}`
+      }
+    >
+      <p>I also render in dark if system theme is dark</p>
+    </section>
+  )}
+</Story>
 
 <Source
-  language='html'
+  language='jsx'
   dark
-  format={false}
+  format
   code={`
-<body class="bg-backg-primary text-primary">
-  <h1>I also render in dark if system theme is dark</h1>
-  <script type="text/javascript">
-    window.onload = () => {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.className += " dark";
-      }
-    }
-  </script>
-</body>
+<section className={\`bg-backg-primary text-primary \${hasDarkSystemTheme() && 'dark'\}\`}>
+  <p>I also render in dark if system theme is dark</p>
+</section>
   `}
 />

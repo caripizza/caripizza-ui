@@ -13,7 +13,21 @@
     --white-100: 255 255 255;
     --text-primary: var(--black-100);
     --backg-primary: var(--white-100);
-    --font-sans: 'Arimo', system-ui, sans-serif;
+    --font-sans: 'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif;
+    --font-mono: 'Menlo', ui-monospace, SFMono-Regular, 'Courier New', monospace;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

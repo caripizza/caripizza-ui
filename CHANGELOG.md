@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [0.1.4] - 10-12-2022
+- adds global CSS vars for font sizing and weights
+- refines font families/weights/sizes in tailwind config, excludes serif fonts
+- cleans up docs
+
 ### [0.1.3] - 10-9-2022
 - adds lint-staged and Storybook tooling
 - refactors colors
