@@ -95,6 +95,19 @@ See the [Dark mode stories](./src/stories/theme) for detailed examples.
 ----
 ## Notes
 
+### Support matrix
+| Browser | Version | OS
+|---|---|---|
+| Chrome | Latest version | Mac OS X 12.6 |
+| Safari | Latest version | Mac OS X 12.6 |
+| Firefox | Latest version | Mac OS X 12.6 |
+| Edge | Latest version | Mac OS X 12.6 |
+
+| Framework | Version |
+|---|---|
+| React | v17, v18 |
+| NextJS | v12 |
+
 ### NextJS
 Next configs need [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules) to transpile the module:
 ```js
@@ -106,7 +119,7 @@ module.exports = withTM(nextConfig);
 
 ----
 ## Contributing
-TBD
+- [CONTRIBUTING](./CONTRIBUTING.md)
 
 ----
 
