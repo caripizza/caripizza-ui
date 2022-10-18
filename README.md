@@ -49,6 +49,7 @@ The stylesheet also includes CSS Vars for colors:
 |---|---|
 | `--color-turquoise` | primary button background colors |
 | `--color-gold` | focus state outline color, secondary button |
+| `--color-hot-pink` | error button color |
 | `--black-100` | light mode font color and dark mode background color |
 | `--white-100` | light mode background color and dark mode font color |
 | `--text-primary` | black if light mode, white if dark mode |
