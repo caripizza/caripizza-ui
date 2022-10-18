@@ -1,6 +1,7 @@
 import React from 'react';
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends Omit<React.ComponentPropsWithRef<'button'>, 'id' | 'disabled'> {
   /** button text content */
   text?: string;
   /** button id attribute */
@@ -11,30 +12,51 @@ export interface ButtonProps {
       | React.MouseEvent<HTMLButtonElement>
       | React.KeyboardEvent<HTMLButtonElement>
   ) => void;
-  /** is button loading */
+  /** when `true`, button renders with loading svg animation */
   loading?: boolean;
-  /** button variant, primary is turquoise and secondary is gold */
+  /** button variant, primary is turquoise and secondary is gold
+   * @default 'primary'
+   */
   variant?: 'primary' | 'secondary';
+  /** when `true`, button renders with outline and transparent background
+   * @default false
+   */
+  outlined?: boolean;
+  /** when `true`, button renders with error styles */
+  error?: boolean;
+  /** when `true`, button renders with disabled styles */
+  disabled?: boolean;
+  /** when `true`, button renders with selected styles */
+  selected?: boolean;
 }
 
-/** Use Button to handle user interactions etc */
+/** Use Button to allow users to take some action with a single click. */
 const Button = ({
   text,
   id,
   onClick,
   loading,
   variant = 'primary',
+  outlined = false,
+  error,
+  disabled,
+  selected,
+  ...props
 }: ButtonProps): JSX.Element => {
   return (
     <button
+      {...props}
       id={id}
       className={`btn ${
         variant === 'primary' ? 'btn-primary' : 'btn-secondary'
+      }${error ? ' error' : ''}${selected ? ' selected' : ''}${
+        outlined ? ' outlined' : ''
       }`}
-      onClick={onClick}
+      onClick={!disabled ? onClick : undefined}
+      disabled={disabled}
     >
       <svg
-        className={`animate-spin text-base flex-none h-5 w-5 text-primary inline transition-opacity duration-500
+        className={`animate-spin text-base flex-none h-5 w-5 text-current inline transition-opacity duration-500
           ${loading ? 'opacity-100' : 'opacity-0 hidden'} ${
           text ? 'mr-2 rtl:mr-0 rtl:ml-2' : 'm-0'
         }`}

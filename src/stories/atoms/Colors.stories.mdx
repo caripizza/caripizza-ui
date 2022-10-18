@@ -8,18 +8,17 @@ The library's color palette is designed to meet [WCAG 2 Guidelines](https://www.
 
 | Theme | Color | Aa - Large Text | Aa - Normal Text | Contrast Ratio |
 |---|---|---|---|---|
-| Light | `turquoise-100` | Black Text - min 49% opacity | Black Text - min 65% opacity | [8.05:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=00B0C9) |
-| Light | `gold-100` | Black Text - min 46% opacity | Black Text - min 60% opacity | [10.49:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FFA300) |
-| Dark | `turquoise-100` | White Text - min 69% opacity | White Text - min 98% opacity | [4.62:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=008098) |
-| Dark | `gold-100` | White Text - min 69% opacity | White Text - min 99% opacity | [4.58:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=A56800) |
+| Light | <div style={{ backgroundColor: colors.light.turquoise[100] }} /> `turquoise-100` | Black Text - min 49% opacity | Black Text - min 65% opacity | [8.05:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=00B0C9) |
+| Light | <div style={{ backgroundColor: colors.light.gold[100] }} /> `gold-100` | Black Text - min 46% opacity | Black Text - min 60% opacity | [10.49:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FFA300) |
+| Light | <div style={{ backgroundColor: colors.light['hot-pink'][100] }} /> `hot-pink-100` | Black Text - min 55% opacity | Black Text - min 77% opacity | [5.49:1](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FF1654) |
+| Dark | <div style={{ backgroundColor: colors.dark.turquoise[100] }} /> `turquoise-100` | White Text - min 70% opacity | White Text - min 100% opacity | [4.51:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=008299) |
+| Dark | <div style={{ backgroundColor: colors.dark.gold[100] }} /> `gold-100` | White Text - min 64% opacity | White Text - min 92% opacity | [5:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=A35F00) |\
+| Dark | <div style={{ backgroundColor: colors.dark['hot-pink'][100] }} /> `hot-pink-100` | White Text - min 63% opacity | White Text - min 83% opacity | [6.2:1](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=C4002C) |
 ____
 
 <style>
 {`.sbdocs-div {
     padding: 1rem;
-  }
-  .sbdocs-div.dark {
-    background-color: rgb(var(--black-100) / 1);
   }
   .sbdocs-div.dark div,
   .sbdocs-div.dark h2 {
@@ -37,7 +36,7 @@ ____
   </ColorPalette>
 </div>
 
-<div className="dark">
+<div className="dark bg-black text-white">
   <h2>Dark</h2>
   <ColorPalette>
     {Object.entries(colors.dark).map((el) => (

@@ -1,0 +1,48 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import { colors } from '../atoms';
+
+<Meta title="Atoms/Gradients" />
+
+# Gradients
+
+<Canvas>
+{/* import { colors } from '@caripizza/ui'; */}
+<main>
+  <style>
+    {`:root [data-theme] p {
+        padding: 1rem;
+        color: rgb(var(--text-primary) / 1);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-semibold);
+    }`}
+  </style>
+  {Object.keys(colors).map((mode) => {
+    const renderGradient = (colorA, colorB) => {
+      return (
+        [25, 50, 75, 100].map((shade) => {
+          return (
+            <div className="bg-backg-primary" id={`${colorA}-${colorB}-${shade}`} key={shade}>
+              <p>{mode} - {colorA}-{shade} to {colorB}-{shade}</p>
+              <style>
+                {`.gradient-demo-${mode} #${colorA}-${colorB}-${shade} p {
+                    background: linear-gradient(45deg, rgb(var(--color-${colorA}) / ${shade / 100}), rgb(var(--color-${colorB}) / ${shade / 100}))
+                }`}
+              </style>
+            </div>
+          )
+        })
+      )
+    }
+    return (
+      <div data-theme={mode} className={`gradient-demo-${mode} ${mode === 'dark' ? 'dark' : ''}`} key={mode}>
+        {renderGradient('turquoise', 'gold')}
+        {renderGradient('hot-pink', 'gold')}
+        {renderGradient('turquoise', 'hot-pink')}
+        {renderGradient('gold', 'hot-pink')}
+        {renderGradient('hot-pink', 'turquoise')}
+        {renderGradient('gold', 'turquoise')}
+      </div>
+    )
+  })}
+</main>
+</Canvas>
