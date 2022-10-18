@@ -33,15 +33,15 @@ module.exports = {
       colors,
       backgroundColor: { colors, ...defaultTheme.backgroundColor },
       borderColor: { colors, ...defaultTheme.colors },
+      screens: {
+        xs: '375px',
+      },
     },
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.focus-ui': {
-          borderWidth: theme('borderWidth.2'),
-          outlineWidth: theme('outlineWidth.0'),
-          borderColor: theme('colors.transparent'),
           transitionProperty: theme('transitionProperty.colors'),
           transitionTimingFunction: theme('transitionTimingFunction.DEFAULT'),
           transitionDuration: theme('transitionDuration.500'),

@@ -2,7 +2,7 @@
   "name": "@caripizza/ui",
   "description": "A design system and component library made with React, Typescript, and Tailwind CSS.",
   "author": "Cari Palazzolo <cari.pizza@gmail.com> (https://github.com/caripizza/)",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/index.js",
   "repository": "git@github.com:caripizza/ui.git",
   "license": "MIT",

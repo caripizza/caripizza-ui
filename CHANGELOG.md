@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [0.1.5] - 10-18-2022
+- adds `hot-pink` color to theme (#11), tweaks dark mode `turquoise` color
+- adds `disabled`, `selected`, `outlined`, and `error` props + styles to Button
+- adds semi-transparent `white-alpha` and `black-alpha` colors for disabled states
+
 ### [0.1.4] - 10-12-2022
 - adds global CSS vars for font sizing and weights
 - refines font families/weights/sizes in tailwind config, excludes serif fonts
