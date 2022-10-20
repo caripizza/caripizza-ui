@@ -68,7 +68,7 @@ The stylesheet also includes CSS Vars for colors:
 | `--text-primary` | black if light mode, white if dark mode |
 | `--backg-primary` | white if light mode, black if dark mode |
 
-Theme colors are also offered as hex codes:
+[Theme colors](/docs/atoms-colors--page) are also offered as hex codes:
 
 <Source
   language='jsx'
@@ -140,21 +140,25 @@ See the [Dark mode](/docs/theme-dark-mode--inherit) stories for detailed example
 ----
 ## Notes
 
-### NextJS
-Next configs need [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules) to transpile the module:
-```js
-/** @type {import('next').NextConfig} */
-const withTM = require('next-transpile-modules')(['@caripizza/ui']);
-const nextConfig = { reactStrictMode: true };
-module.exports = withTM(nextConfig);
-```
+### Support matrix
+| Browser | Version | OS
+|---|---|---|
+| Chrome | Latest version | Mac OS X 12.6 |
+| Safari | Latest version | Mac OS X 12.6 |
+| Firefox | Latest version | Mac OS X 12.6 |
+| Edge | Latest version | Mac OS X 12.6 |
+
+| Framework | Version |
+|---|---|
+| React | v17, v18 |
+| NextJS | v12 |
 
 ----
 ## Contributing
-TBD
+- [CONTRIBUTING.md](https://github.com/caripizza/ui/blob/main/CONTRIBUTING.md)
 
 ## Resources
-- [README on GitHub](https://github.com/caripizza/ui/blob/master/README.md)
+- [README on GitHub](https://github.com/caripizza/ui/blob/main/README.md)
 - [📦 npm](https://www.npmjs.com/package/@caripizza/ui)
 - [Chromatic > Library](https://www.chromatic.com/library?appId=63376424914401d9d4d73e3b)
 

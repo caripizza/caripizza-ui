@@ -1,19 +1,34 @@
-import { Meta, Canvas } from '@storybook/addon-docs';
+import { Meta, Canvas, Source } from '@storybook/addon-docs';
 import { colors } from '../atoms';
 
 <Meta title="Atoms/Gradients" />
 
 # Gradients
 
+CSS Vars for color in the global stylesheet provide an easy way to opt-into colors from the library:
+
+<Source
+  language='jsx'
+  dark
+  format
+  code={`.my-paragraph {
+    background: linear-gradient(
+      45deg,
+      rgb(var(--color-turquoise) / 0.75),
+      rgb(var(--color-gold) / 0.75)
+    );
+  }`}
+/>
+
 <Canvas>
 {/* import { colors } from '@caripizza/ui'; */}
 <main>
   <style>
     {`:root [data-theme] p {
-        padding: 1rem;
-        color: rgb(var(--text-primary) / 1);
-        font-size: var(--font-size-base);
-        font-weight: var(--font-weight-semibold);
+      padding: 1rem;
+      color: rgb(var(--text-primary) / 1);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
     }`}
   </style>
   {Object.keys(colors).map((mode) => {
@@ -25,7 +40,10 @@ import { colors } from '../atoms';
               <p>{mode} - {colorA}-{shade} to {colorB}-{shade}</p>
               <style>
                 {`.gradient-demo-${mode} #${colorA}-${colorB}-${shade} p {
-                    background: linear-gradient(45deg, rgb(var(--color-${colorA}) / ${shade / 100}), rgb(var(--color-${colorB}) / ${shade / 100}))
+                    background: linear-gradient(
+                      45deg,
+                      rgb(var(--color-${colorA}) / ${shade / 100}),
+                      rgb(var(--color-${colorB}) / ${shade / 100}))
                 }`}
               </style>
             </div>

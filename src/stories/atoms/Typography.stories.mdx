@@ -2,6 +2,7 @@ import { Meta, Typeset, Source, Canvas } from '@storybook/addon-docs';
 
 <Meta title="Atoms/Typography" />
 
+<!-- TODO: move to `themes` object -->
 export const typography = {
   type: {
     sans: `'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif`,
@@ -26,8 +27,11 @@ export const typography = {
   },
 };
 
+export const allFontSizes = Object.values({ ...typography.size });
+export const loremIpsum = 'Lorem ipsum dolor sit amet';
+
 # Typography
-Global CSS Vars provide the ability to opt-into the library font styles:
+The default library font is Arimo, available in the global stylesheet along with other CSS Vars for fonts:
 
 **Family:** [Arimo](https://fonts.google.com/share?selection.family=Arimo:wght@400;500;600)
 
@@ -98,27 +102,39 @@ Global CSS Vars provide the ability to opt-into the library font styles:
     <div className="regular rg">
       <span>400 (regular)</span>
       <div>
-        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
-          sampleText='Lorem ipsum dolor sit amet'
-          fontFamily={typography.type.primary}
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.sans}
+        />
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.mono}
         />
       </div>
     </div>
     <div className="medium md">
       <span>500 (medium)</span>
       <div>
-        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
-          sampleText='Lorem ipsum dolor sit amet'
-          fontFamily={typography.type.primary}
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.sans}
+        />
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.mono}
         />
       </div>
     </div>
     <div className="semibold sb">
       <span>600 (semibold)</span>
       <div>
-        <Typeset fontSizes={Object.values(typography.size).map((el) => el)}
-          sampleText='Lorem ipsum dolor sit amet'
-          fontFamily={typography.type.primary}
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.sans}
+        />
+        <Typeset fontSizes={allFontSizes}
+          sampleText={loremIpsum}
+          fontFamily={typography.type.mono}
         />
       </div>
     </div>

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 const colors = require('./colors');
 
@@ -31,15 +30,15 @@ module.exports = {
     },
     extend: {
       colors,
-      backgroundColor: { colors, ...defaultTheme.backgroundColor },
-      borderColor: { colors, ...defaultTheme.colors },
+      backgroundColor: { colors },
+      borderColor: { colors },
       screens: {
         xs: '375px',
       },
     },
   },
   plugins: [
-    plugin(function ({ addComponents, theme }) {
+    plugin(({ addComponents, theme }) => {
       addComponents({
         '.focus-ui': {
           transitionProperty: theme('transitionProperty.colors'),

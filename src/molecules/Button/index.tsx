@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface ButtonProps
+interface ButtonProps
   extends Omit<React.ComponentPropsWithRef<'button'>, 'id' | 'disabled'> {
   /** button text content */
   text?: string;
@@ -83,4 +83,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export { ButtonProps, Button };

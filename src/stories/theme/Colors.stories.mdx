@@ -1,0 +1,57 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import { themes, hasDarkSystemTheme } from '../..';
+import colors from '../../../colors'
+
+<Meta title='Theme/Colors' />
+
+# Themes
+The library exports a `themes` object, which contains light and dark theme colors that tie to global CSS Vars:
+
+<Source
+  language='tsx'
+  dark
+  format
+  code={
+`import { themes } from '@caripizza/ui';
+// ...
+<pre>{JSON.stringify(themes, null, 2)}</pre>`}
+/>
+
+<div className="sbdocs-div">
+  <pre>{JSON.stringify(themes, null, 2)}</pre>
+</div>
+
+<br />
+
+## Use theme color
+
+We can automatically render <strong>hot-pink</strong> in shade <strong>75</strong>, dark theme, like so:
+
+#### as CSS Var
+
+<Source
+  language='tsx'
+  dark
+  format
+  code={
+`import { hasDarkSystemTheme } from '@caripizza/ui';
+// ...
+<p className={hasDarkSystemTheme() && 'dark'} style={{ color: 'rgb(var(--color-hot-pink) / 0.75)' }}>I'm hot-pink</p>`
+}
+/>
+
+<p className={hasDarkSystemTheme() && 'dark'} style={{ color: 'rgb(var(--color-hot-pink) / 0.75)' }}>I'm hot-pink</p>
+
+#### as hex code
+
+<Source
+  language='tsx'
+  dark
+  format
+  code={
+`import { themes, hasDarkSystemTheme } from '@caripizza/ui';
+// ...
+<p style={{ color: \`\${themes[hasDarkSystemTheme() ? 'dark' : 'light'].colors['hot-pink'][75]}\` }}>Some hot-pink text</p>`}
+/>
+
+<p style={{ color: `${themes[hasDarkSystemTheme() ? 'dark' : 'light'].colors['hot-pink'][75]}` }}>Some hot-pink text</p>

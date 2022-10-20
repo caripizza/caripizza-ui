@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [0.1.6] - 10-20-2022
+- adds CommonJS output to dist (prevent need for additional tooling in Nextjs and jest in order to support the ESM output)
+- cleans up Storybook docs, tailwind config
+- moves `react` and `react-dom` production dependencies to be peer dependencies only
+
 ### [0.1.5] - 10-18-2022
 - adds `hot-pink` color to theme (#11), tweaks dark mode `turquoise` color
 - adds `disabled`, `selected`, `outlined`, and `error` props + styles to Button
