@@ -30,11 +30,13 @@ We can automatically render <strong>hot-pink</strong> in shade <strong>75</stron
 #### as CSS Var
 
 <Source
-  language='css'
+  language='tsx'
   dark
   format
   code={
-`<p className={hasDarkSystemTheme() && 'dark'} style={{ color: 'rgb(var(--color-hot-pink) / 0.75)' }}>I'm hot-pink</p>`
+`import { hasDarkSystemTheme } from '@caripizza/ui';
+// ...
+<p className={hasDarkSystemTheme() && 'dark'} style={{ color: 'rgb(var(--color-hot-pink) / 0.75)' }}>I'm hot-pink</p>`
 }
 />
 
@@ -49,7 +51,7 @@ We can automatically render <strong>hot-pink</strong> in shade <strong>75</stron
   code={
 `import { themes, hasDarkSystemTheme } from '@caripizza/ui';
 // ...
-<p style={{ color: \${themes[hasDarkSystemTheme() ? 'dark' : 'light'].colors['hot-pink'][75]}\` }}>Some hot-pink text</p>`}
+<p style={{ color: \`\${themes[hasDarkSystemTheme() ? 'dark' : 'light'].colors['hot-pink'][75]}\` }}>Some hot-pink text</p>`}
 />
 
 <p style={{ color: `${themes[hasDarkSystemTheme() ? 'dark' : 'light'].colors['hot-pink'][75]}` }}>Some hot-pink text</p>
