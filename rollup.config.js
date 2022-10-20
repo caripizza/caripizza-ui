@@ -22,7 +22,7 @@ const config = {
       globals,
     },
     {
-      file: './dist/cjs/index.js',
+      file: './dist/index.cjs.js',
       format: 'cjs',
       globals,
     },

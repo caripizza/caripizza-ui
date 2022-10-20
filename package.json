@@ -3,11 +3,11 @@
   "description": "A design system and component library made with React, Typescript, and Tailwind CSS.",
   "author": "Cari Palazzolo <cari.pizza@gmail.com> (https://github.com/caripizza/)",
   "version": "0.1.5",
-  "main": "dist/cjs/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
+      "require": "./dist/index.cjs.js",
       "import": "./dist/index.js"
     },
     "./dist/output.css": {
