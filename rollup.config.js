@@ -33,6 +33,7 @@ const config = {
       tsconfig: './tsconfig.build.json',
       declaration: true,
       declarationDir: './dist',
+      declarationMap: true,
     }),
     terser(),
   ],
