@@ -89,7 +89,7 @@ export const Inherit: ComponentStory<typeof Component> = () => {
   return (
     <div
       ref={parentRef}
-      className='bg-backg-primary text-primary grid grid-cols-1 p-8 h-96 w-5/6 overflow-auto'
+      className='bg-backg-primary text-primary grid grid-cols-1 p-8 h-[450px] md:max-h-96 sm:w-5/6 overflow-auto'
     >
       System theme: {JSON.stringify(state.systemTheme)}
       <label
@@ -121,7 +121,7 @@ export const Inherit: ComponentStory<typeof Component> = () => {
           href='https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-cyan-700 dark:text-gold-100'
+          className='text-blue-600 dark:text-blue-500'
         >
           CSS media queries
         </a>
@@ -130,7 +130,7 @@ export const Inherit: ComponentStory<typeof Component> = () => {
           href='https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-cyan-700 dark:text-gold-100'
+          className='text-blue-600 dark:text-blue-500'
         >
           CSS Custom Properties
         </a>
@@ -139,7 +139,7 @@ export const Inherit: ComponentStory<typeof Component> = () => {
           href='https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-cyan-700 dark:text-gold-100'
+          className='text-blue-600 dark:text-blue-500'
         >
           Tailwind's <strong>dark</strong> mode class
         </a>
@@ -147,18 +147,17 @@ export const Inherit: ComponentStory<typeof Component> = () => {
       </p>
       <p>
         When the <strong>dark</strong> class is appended to an ancestor in the
-        DOM, components inherit colors from the&nbsp;
-        <span className='whitespace-nowrap'>
-          &nbsp;`--text-primary` and `--backg-primary`&nbsp;
-        </span>
-        CSS Vars, which toggle from&nbsp;
+        DOM, components inherit colors from the &nbsp;
+        <code className='whitespace-nowrap'>--text-primary</code> and&nbsp;
+        <code className='whitespace-nowrap'>--backg-primary</code> CSS Vars,
+        which toggle from
         <a
           href='https://github.com/caripizza/ui/blob/main/src/input.css#L12-L17'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-cyan-700 dark:text-gold-100'
+          className='text-blue-600 dark:text-blue-500'
         >
-          white to black based on dark mode
+          &nbsp;white to black based on dark mode
         </a>
         .
       </p>

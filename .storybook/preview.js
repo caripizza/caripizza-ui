@@ -51,8 +51,9 @@ export const parameters = {
       order: [
         'Introduction',
         'Atoms',
+          ['Typography', 'Colors', 'Gradients'],
         'Theme',
-          ['Dark mode'],
+          ['Dark mode', 'Colors'],
         'Molecules',
           ['Button']
       ],
