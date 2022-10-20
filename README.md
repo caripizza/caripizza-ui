@@ -109,15 +109,6 @@ See the [Dark mode stories](./src/stories/theme) for detailed examples.
 | React | v17, v18 |
 | NextJS | v12 |
 
-### NextJS
-Next configs need [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules) to transpile the module:
-```js
-/** @type {import('next').NextConfig} */
-const withTM = require('next-transpile-modules')(['@caripizza/ui']);
-const nextConfig = { reactStrictMode: true };
-module.exports = withTM(nextConfig);
-```
-
 ----
 ## Contributing
 - [CONTRIBUTING](./CONTRIBUTING.md)
@@ -128,5 +119,3 @@ module.exports = withTM(nextConfig);
 - [WIKI](https://github.com/caripizza/ui/wiki/Resources)
 - [LICENSE](./LICENSE.txt)
 - [CHANGELOG](./CHANGELOG.md)
-
-

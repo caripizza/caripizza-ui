@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '../../molecules/Button';
+import { Button } from '../../molecules/Button';
 
 export default {
   title: 'Molecules/Button',
