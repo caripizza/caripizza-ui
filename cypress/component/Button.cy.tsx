@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '../../src';
-import '../../dist/output.css';
 
 describe('Button', () => {
   let count = 0;
