@@ -20,13 +20,13 @@ describe('Button', () => {
 
     it('should be clickable', () => {
       cy.get(buttonSelector)
-        // .click()
+        .click()
         .then(() => expect(count).to.equal(1));
     });
   });
 
   it('supports `selected` prop to set styles', () => {
-    cy.mount(<Button data-cy={btn} text='View more' selected error />);
+    cy.mount(<Button data-cy={btn} text='View more' selected />);
     cy.document().then((doc) => {
       const turquoiseColor = window
         .getComputedStyle(doc.querySelector(buttonSelector))
