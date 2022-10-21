@@ -28,6 +28,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          record: true
+          component: true
           command: yarn cypress:run
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
