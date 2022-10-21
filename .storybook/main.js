@@ -41,12 +41,12 @@ const config = {
           ],
         }
       }
-    }
-    config.optimization = {
-      splitChunks: {
-        chunks: 'all'
-      },
-      runtimeChunk: true
+      config.optimization = {
+        splitChunks: {
+          chunks: 'all'
+        },
+        runtimeChunk: true
+      }
     }
     config.resolve = {
       ...(config.resolve || {}),
