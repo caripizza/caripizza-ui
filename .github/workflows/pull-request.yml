@@ -19,3 +19,18 @@ jobs:
     - run: yarn test
     - run: yarn build-storybook
     - run: yarn build
+  cypress-run:
+    name: Cypress run Component tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          component: true
+          command: yarn cypress:run
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}

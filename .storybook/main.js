@@ -24,6 +24,30 @@ const config = {
     reactDocgen: 'react-docgen',
   },
   webpackFinal: async (config) => {
+    if (process.env.NODE_ENV === 'test') {
+      config = {
+        module: {
+          rules: [
+            {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+            {
+              test: /\.css$/i,
+              exclude: /node_modules/,
+              use: ['style-loader', 'css-loader'],
+            },
+          ],
+        }
+      }
+      config.optimization = {
+        splitChunks: {
+          chunks: 'all'
+        },
+        runtimeChunk: true
+      }
+    }
     config.resolve = {
       ...(config.resolve || {}),
       extensions: ['.ts', '.tsx', '.js']
