@@ -38,8 +38,10 @@
     "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
     "watch:css": "yarn build:css --watch",
     "cypress:open": "cross-env NODE_ENV=test cypress open",
-    "cypress:run-comp": "cross-env NODE_ENV=test cypress run --record --component",
-    "cypress:run-e2e": "cypress run --record --e2e",
+    "cypress:run-comp": "cross-env NODE_ENV=test cypress run --component",
+    "cypress:rec-comp": "cross-env NODE_ENV=test cypress run --record --component",
+    "cypress:run-e2e": "cypress run --e2e",
+    "cypress:rec-e2e": "cypress run --record --e2e",
     "test-storybook": "test-storybook"
   },
   "outputDir": "./dist",
