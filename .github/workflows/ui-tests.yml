@@ -23,6 +23,9 @@ jobs:
           record: true
           component: true
           command: yarn cypress:run-comp
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
       # Run interaction tests
       - name: Build Storybook
         run: yarn build-storybook
