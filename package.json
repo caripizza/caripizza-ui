@@ -33,7 +33,7 @@
     "test:coverage": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "storybook": "concurrently --kill-others --raw \"tsc --project ./tsconfig.dev.json --watch\" \"yarn watch:css\" \"yarn start-storybook -p 6006\"",
-    "build-storybook": "yarn build:css && build-storybook -c .storybook",
+    "build-storybook": "yarn build:css && build-storybook --quiet -c .storybook",
     "chromatic": "yarn build-storybook && npx chromatic --project-token=92985fc3dcac --force-rebuild",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
     "watch:css": "yarn build:css --watch",
