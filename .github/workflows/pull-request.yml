@@ -3,8 +3,8 @@ name: Pull Request
 on: [pull_request]
 
 jobs:
-  # Run jest tests and build scripts
-  build:
+  # Run jest tests
+  jest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,5 +22,3 @@ jobs:
       run: yarn test
     - name: Run jest test coverage
       run: yarn test:coverage
-    - name: Build package
-      run: yarn build

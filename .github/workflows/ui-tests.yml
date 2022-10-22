@@ -42,30 +42,24 @@ jobs:
           key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-v1
-      - name: Build package styles
+      - name: Build package
         run: yarn build
       # Run component tests
       - name: Cypress run component tests
         uses: cypress-io/github-action@v4
         with:
-          record: true
+          record: false
           component: true
           command: yarn cypress:run-comp
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
       # Run interaction tests
       - name: Build Storybook
         run: yarn build-storybook
       - name: Cypress run e2e tests
         uses: cypress-io/github-action@v4
         with:
-          record: true
+          record: false
           component: false
           command: |
             yarn concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
               "yarn http-server storybook-static --port 6006 --silent" \
               "yarn wait-on tcp:6006 && yarn test-storybook && yarn cypress:run-e2e"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
