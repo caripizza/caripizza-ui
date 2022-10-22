@@ -11,4 +11,11 @@ export default defineConfig({
     },
   },
   video: false,
+  e2e: {
+    baseUrl: 'http://localhost:6006',
+    setupNodeEvents(on /*config*/) {
+      // implement node event listeners here
+      on('after:spec', () => console.log('e2e specs complete!'));
+    },
+  },
 });

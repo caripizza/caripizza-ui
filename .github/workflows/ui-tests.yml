@@ -1,0 +1,40 @@
+name: 'UI Tests'
+
+on: push
+
+jobs:
+  # Run cypress tests
+  cypress-run-comp:
+    name: Cypress run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: yarn
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Run component tests
+      - name: Cypress run component tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          component: true
+          command: yarn cypress:run-comp
+      # Run interaction tests
+      - name: Build Storybook
+        run: yarn build-storybook
+      - name: Cypress run e2e tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          component: false
+          command: |
+            yarn concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+              "yarn http-server storybook-static --port 6006 --silent" \
+              "yarn wait-on tcp:6006 && yarn test-storybook && yarn cypress:run-e2e"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
