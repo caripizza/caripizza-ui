@@ -7,49 +7,17 @@ on:
 
 jobs:
   chromatic-deployment:
-    name: Deploy to Chromatic
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn
+        # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic and auto accept changes
         if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
         with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: true
-  cypress-rec-comp:
-    name: Cypress run and record tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: yarn
-      - name: Build package
-        run: yarn build
-      # Run component tests
-      - name: Cypress run component tests
-        uses: cypress-io/github-action@v4
-        with:
-          record: true
-          component: true
-          command: yarn cypress:rec-comp
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
-      # Run interaction tests
-      - name: Build Storybook
-        run: yarn build-storybook
-      - name: Cypress run e2e tests
-        uses: cypress-io/github-action@v4
-        with:
-          record: true
-          component: false
-          command: |
-            yarn concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-              "yarn http-server storybook-static --port 6006 --silent" \
-              "yarn wait-on tcp:6006 && yarn test-storybook && yarn cypress:rec-e2e"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          autoAcceptChanges: true # 👈 Option to accept all changes
