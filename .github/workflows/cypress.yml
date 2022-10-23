@@ -1,4 +1,4 @@
-name: 'Cypress'
+name: 'Run and record Cypress tests'
 
 on:
   push:
@@ -6,8 +6,7 @@ on:
       - 'main'
 
 jobs:
-  cypress-record:
-    name: Cypress run and record tests
+  cypress:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
