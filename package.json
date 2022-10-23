@@ -39,9 +39,9 @@
     "watch:css": "yarn build:css --watch",
     "cypress:open": "cross-env NODE_ENV=test cypress open",
     "cypress:run-comp": "cross-env NODE_ENV=test cypress run --component --browser chrome",
-    "cypress:rec-comp": "cross-env NODE_ENV=test cypress run --record --component",
+    "cypress:rec-comp": "yarn cypress:run-comp --record",
     "cypress:run-e2e": "cypress run --e2e",
-    "cypress:rec-e2e": "cypress run --record --e2e",
+    "cypress:rec-e2e": "yarn cypress:run-e2e --record",
     "test-storybook": "test-storybook"
   },
   "outputDir": "./dist",
