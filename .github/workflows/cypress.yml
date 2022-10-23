@@ -3,8 +3,7 @@ name: 'Record Cypress UI tests'
 on:
   push:
     branches:
-      # - 'main'
-      - 'add-cypress-e2e-tests'
+      - 'main'
 
 jobs:
   cypress:
