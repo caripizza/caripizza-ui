@@ -42,8 +42,8 @@ jobs:
           key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-v1
-      - name: Build package
-        run: yarn build
+      - name: Build package styles
+        run: yarn build:css
       # Run component tests
       - name: Cypress run component tests
         uses: cypress-io/github-action@v4
