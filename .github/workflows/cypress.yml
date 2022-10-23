@@ -1,0 +1,43 @@
+name: 'Cypress'
+
+on:
+  push:
+    branches:
+      # - 'main'
+      - 'add-cypress-e2e-test'
+
+jobs:
+  cypress-record:
+    name: Cypress run and record tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Build package styles
+        run: yarn build:css
+      # Run component tests
+      - name: Cypress run component tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          component: true
+          command: yarn cypress:rec-comp
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+      # Run interaction tests
+      - name: Build Storybook
+        run: yarn build-storybook
+      - name: Cypress run e2e tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          component: false
+          command: |
+            yarn concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+              "yarn http-server storybook-static --port 6006 --silent" \
+              "yarn wait-on tcp:6006 && yarn test-storybook && yarn cypress:rec-e2e"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
