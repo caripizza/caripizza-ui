@@ -1,4 +1,4 @@
-name: 'Chromatic'
+name: 'Deploy to Chromatic'
 
 on:
   push:
@@ -12,12 +12,9 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn
-        # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic and auto accept changes
         if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
-        # Required options for the Chromatic GitHub Action
         with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: true # 👈 Option to accept all changes
+          autoAcceptChanges: true

@@ -27,7 +27,12 @@ const Template: ComponentStory<typeof Button> = ({ ...args }) => {
         <p id='default' className='text-primary font-medium mb-3'>
           Default
         </p>
-        <Button {...args} aria-labelledby='default' text={buttonText} />
+        <Button
+          {...args}
+          aria-labelledby='default'
+          text={buttonText}
+          data-cy='primary-btn'
+        />
         <Button {...args} text='Loading...' loading />
         <Button {...args} text='Error!' error />
         <Button {...args} text='Submit' disabled />

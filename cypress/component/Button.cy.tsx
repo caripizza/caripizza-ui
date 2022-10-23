@@ -4,7 +4,6 @@ import { Button } from '../../src';
 describe('Button', () => {
   let count = 0;
   const btn = 'button';
-  const buttonSelector = `[data-cy="${btn}"]`;
   const primaryBtn = (
     <Button data-cy={btn} text='Submit' onClick={() => count++} />
   );
@@ -15,11 +14,11 @@ describe('Button', () => {
     });
 
     it('mounts', () => {
-      cy.get(buttonSelector).should('have.text', 'Submit');
+      cy.dataCy(btn).should('have.text', 'Submit');
     });
 
     it('should be clickable', () => {
-      cy.get(buttonSelector)
+      cy.dataCy(btn)
         .click()
         .then(() => expect(count).to.equal(1));
     });
@@ -29,13 +28,13 @@ describe('Button', () => {
     cy.mount(<Button data-cy={btn} text='View more' selected />);
     cy.document().then((doc) => {
       const turquoiseColor = window
-        .getComputedStyle(doc.querySelector(buttonSelector))
+        .getComputedStyle(doc.querySelector(btn))
         .getPropertyValue('--color-turquoise');
       const turquoiseRGB = turquoiseColor
         .split(' ')
         .filter((val) => val)
         .join(', ');
-      cy.get(buttonSelector)
+      cy.dataCy(btn)
         .should('have.css', 'background-color')
         .and('contains', turquoiseRGB);
     });
