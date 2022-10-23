@@ -49,6 +49,9 @@ yarn test
 
 # watch
 yarn test:watch
+
+# view coverage
+yarn test:coverage
 ```
 
 Cypress
