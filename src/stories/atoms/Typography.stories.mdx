@@ -1,33 +1,9 @@
 import { Meta, Typeset, Source, Canvas } from '@storybook/addon-docs';
+import { typography, fontSizesRem, fontSizesPx } from '../../atoms';
 
 <Meta title="Atoms/Typography" />
 
-<!-- TODO: move to `themes` object -->
-export const typography = {
-  type: {
-    sans: `'Arimo', ui-sans-serif, system-ui, 'Helvetica Neue', sans-serif`,
-    mono: `'Menlo', ui-monospace, SFMono-Regular, 'Courier New', monospace`,
-  },
-  weight: {
-    regular: 400,
-    medium: 500,
-    semibold: 600,
-  },
-  size: {
-    xs: 12,
-    sm: 14,
-    base: 16,
-    lg: 18,
-    xl: 20,
-    "2xl": 24,
-    "3xl": 30,
-    "4xl": 36,
-    "5xl": 48,
-    "6xl": 60,
-  },
-};
-
-export const allFontSizes = Object.values({ ...typography.size });
+export const allFontSizes = Object.values({ ...fontSizesPx });
 export const loremIpsum = 'Lorem ipsum dolor sit amet';
 
 # Typography
@@ -39,25 +15,22 @@ The default library font is Arimo, available in the global stylesheet along with
   language='js'
   format
   code={`
---font-sans // ${typography.type.sans}
---font-mono // ${typography.type.mono}
+--font-sans // ${typography.fontFamily.sans}
+--font-mono // ${typography.fontFamily.mono}
 `}
 />
 
 **Sizes:**
 
-```js
---font-size-xs // 0.75rem (12px)
---font-size-sm // 0.875rem (14px)
---font-size-base // 1rem (16px)
---font-size-lg // 1.125rem (18px)
---font-size-xl // 1.25rem (20px)
---font-size-2xl // 1.5rem (24px)
---font-size-3xl // 1.875rem (30px)
---font-size-4xl // 2.25rem (36px)
---font-size-5xl // 3rem (48px)
---font-size-6xl // 3.75rem (60px)
-```
+<Source
+  language='jsx'
+  format
+  code={
+`${Object.keys(fontSizesRem).map((el) => {
+    return `
+    --font-size-${el} // ${fontSizesRem[el]}rem (${fontSizesPx[el]}px)`
+  })}`
+}/>
 
 **Weights:**
 
@@ -65,9 +38,9 @@ The default library font is Arimo, available in the global stylesheet along with
   language='js'
   format
   code={`
---font-weight-regular // ${typography.weight.regular}
---font-weight-medium // ${typography.weight.medium}
---font-weight-semibold // ${typography.weight.semibold}
+--font-weight-regular // ${typography.fontWeight.regular}
+--font-weight-medium // ${typography.fontWeight.medium}
+--font-weight-semibold // ${typography.fontWeight.semibold}
 `}
 />
 
@@ -104,11 +77,11 @@ The default library font is Arimo, available in the global stylesheet along with
       <div>
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.sans}
+          fontFamily={typography.fontFamily.sans}
         />
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.mono}
+          fontFamily={typography.fontFamily.mono}
         />
       </div>
     </div>
@@ -117,11 +90,11 @@ The default library font is Arimo, available in the global stylesheet along with
       <div>
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.sans}
+          fontFamily={typography.fontFamily.sans}
         />
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.mono}
+          fontFamily={typography.fontFamily.mono}
         />
       </div>
     </div>
@@ -130,11 +103,11 @@ The default library font is Arimo, available in the global stylesheet along with
       <div>
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.sans}
+          fontFamily={typography.fontFamily.sans}
         />
         <Typeset fontSizes={allFontSizes}
           sampleText={loremIpsum}
-          fontFamily={typography.type.mono}
+          fontFamily={typography.fontFamily.mono}
         />
       </div>
     </div>

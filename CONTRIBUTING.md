@@ -30,7 +30,7 @@ Helpful VS Code extensions:
 ### Installs
 ```bash
 # use latest LTS version node 14
-nvm install Fermium
+nvm use --lts=fermium
 
 # install dependencies
 yarn
