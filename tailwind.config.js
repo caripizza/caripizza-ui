@@ -13,8 +13,8 @@ module.exports = {
       semibold: 600,
     },
     fontFamily: {
-      sans: 'var(--font-sans)',
-      mono: 'var(--font-mono)',
+      sans: ['var(--font-sans)'],
+      mono: ['var(--font-mono)'],
     },
     fontSize: {
       xs: ['var(--font-size-xs)', { lineHeight: '1rem' }],
