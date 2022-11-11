@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [0.1.7] - 11-11-2022
+- adds Emoji to molecules/ and unicode emoji library/utils 🤖
+- adds typography to atoms/, theme
+- adds Cypress e2e and component tests, docs, dependencies
+
 ### [0.1.6] - 10-20-2022
 - adds CommonJS output to dist (prevent need for additional tooling in Nextjs and jest in order to support the ESM output)
 - cleans up Storybook docs, tailwind config
