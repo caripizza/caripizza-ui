@@ -62,7 +62,11 @@ yarn cypress:open
 # run component tests in headless Chrome
 yarn cypress:run-comp
 
-# run e2e and interaction tests in headless Electron
+# run e2e and interaction tests in headless Electron:
+yarn build:css
+
+yarn build-storybook
+
 yarn concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
   "yarn http-server storybook-static --port 6006 --silent" \
   "yarn wait-on tcp:6006 && yarn test-storybook && yarn cypress:run-e2e"

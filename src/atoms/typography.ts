@@ -121,5 +121,5 @@ const typography: Typography = {
   },
 };
 
-export type { Typography };
+export type { Typography, FontSizeKey };
 export { fontSizesRem, fontSizesPx, typography };
