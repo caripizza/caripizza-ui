@@ -52,6 +52,7 @@
     "@babel/core": "^7.19.3",
     "@cypress/react": "^6.2.0",
     "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^5.0.1",
     "@rollup/plugin-typescript": "^8.5.0",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",

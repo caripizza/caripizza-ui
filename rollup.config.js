@@ -1,6 +1,7 @@
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import json from '@rollup/plugin-json';
 
 const globals = {
   react: 'React',
@@ -28,6 +29,7 @@ const config = {
     },
   ],
   plugins: [
+    json(),
     commonjs(),
     typescript({
       tsconfig: './tsconfig.build.json',
