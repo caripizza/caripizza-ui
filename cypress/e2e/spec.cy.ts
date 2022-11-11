@@ -27,6 +27,22 @@ describe('component library', () => {
             .and('equals', 'rgb(37, 99, 235)'); // blue-600
         });
       });
+
+      describe('Emoji', () => {
+        it('should render span with the right role and aria-label attributes', () => {
+          // given the Emoji Demo story renders
+          cy.visit('/iframe.html?id=molecules-emoji--demo');
+
+          // when viewing the Emoji
+          const span = `[data-cy="emoji"]`;
+
+          // then it should have the right HTML attributes
+          cy.get(span)
+            .should('have.attr', 'aria-label')
+            .and('equals', 'woman detective: light skin tone');
+          cy.get(span).should('have.attr', 'role').and('equals', 'img');
+        });
+      });
     });
   });
 });

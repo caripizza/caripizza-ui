@@ -12,7 +12,7 @@ export default {
 } as ComponentMeta<typeof Emoji>;
 
 const Template: ComponentStory<typeof Emoji> = ({ ...args }) => {
-  return <Emoji {...args} />;
+  return <Emoji {...args} data-cy='emoji' />;
 };
 
 export const Demo = Template.bind({});
