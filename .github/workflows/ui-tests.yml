@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-yarn-v1
       - name: Install dependencies if cache invalid
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn
+        run: yarn install --frozen-lockfile
   cypress:
     name: Run Cypress tests
     runs-on: ubuntu-latest
