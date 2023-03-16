@@ -19,7 +19,7 @@
   "repository": "git@github.com:caripizza/ui.git",
   "license": "MIT",
   "engines": {
-    "node": ">=12.22.x <18.x"
+    "node": ">=12.22.x <18.15.0"
   },
   "scripts": {
     "prepare": "husky install",
