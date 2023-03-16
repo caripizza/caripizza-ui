@@ -10,10 +10,11 @@ jobs:
       - name: Checkout Commit
         uses: actions/checkout@v3
       - name: Cache yarn dependencies and cypress
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
           cache: 'yarn'
+      - name: Install dependencies if cache invalid
         run: yarn install --frozen-lockfile
   cypress:
     name: Run Cypress tests
